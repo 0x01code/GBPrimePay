@@ -4,14 +4,15 @@ require_once 'gbprimepay.php';
 
 
 $token = "TOKEN";
-$public_key = "PUBLIC_KEY";
-$secret_key = "SECRET_KEY";
+// $public_key = "PUBLIC_KEY";
+// $secret_key = "SECRET_KEY";
 
 $gbprimepay = new GBPrimePay();
 
 $qrcode = $gbprimepay->promptpay([
     'amount' => '10.00',
     'referenceNo' => 'PP1234',
+    'backgroundUrl' => 'https://dev.0x01code.me/gbprimepay.webhook.php',
 ], $token);
 echo '<img src="' . $qrcode . '">';
 
